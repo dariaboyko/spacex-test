@@ -50,6 +50,7 @@ const BannerSwitcherOuterDiv = styled.div`
   height: 24px;
   border: 1px solid #ffffff;
   border-radius: 50%;
+  cursor: pointer;
 `;
 const BannerSwitcherInnerDiv = styled.div`
   width: 12px;
@@ -70,6 +71,8 @@ const ExploreLink = styled.div`
   justify-content: center;
   align-items: center;
   gap: 18px;
+  cursor: pointer;
+  user-select: none;
 `;
 export function MainHero({ children }: Props) {
   const [imageURL, setImageURL] = useState(0);
@@ -83,6 +86,12 @@ export function MainHero({ children }: Props) {
     }, 2000);
     return () => clearInterval(interval);
   }, [imageURL]);
+  const goNext = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  };
   return (
     <section>
       {children} <BannerImage src={images[imageURL]}></BannerImage>
@@ -113,7 +122,7 @@ export function MainHero({ children }: Props) {
           </BannerSwitcherOuterDiv>
         </BannerSwitcher>
       </BannerTextContainer>
-      <ExploreLink>
+      <ExploreLink onClick={() => goNext()}>
         Explore tours
         <ArrowSVG />
       </ExploreLink>

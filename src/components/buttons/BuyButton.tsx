@@ -10,5 +10,10 @@ const Button = styled.button`
   line-height: 29px;
   text-transform: uppercase;
   border: 0;
+  cursor: pointer;
+  user-select: none;
+  &:active {
+    transform: scale(0.98);
+  }
 `;
 export const BuyButton = () => <Button>buy</Button>;

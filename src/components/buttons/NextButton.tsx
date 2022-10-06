@@ -4,6 +4,11 @@ const Button = styled.button`
   height: 44px;
   background: #ececec;
   border: 0;
+  &:active {
+    transform: scale(0.98);
+  }
+  cursor: pointer;
+  user-select: none;
 `;
 export const NextButton = (props: { onClick: any }) => (
   <Button onClick={props.onClick}>

@@ -39,6 +39,7 @@ const SwitcherOuterDiv = styled.div`
   height: 24px;
   border: 1px solid #1e1e1e;
   border-radius: 50%;
+  cursor: pointer;
 `;
 const SwitcherInnerDiv = styled.div`
   width: 12px;
@@ -144,18 +145,20 @@ export function MainPageContent() {
                 )
             )}
       </ProductContent>
-      <SwitcherWrapper>
-        <Switcher>
-          {pagination.map((i) => (
-            <SwitcherOuterDiv
-              onClick={() => setCurrentPage(i)}
-              key={Math.random()}
-            >
-              {currentPage === i && <SwitcherInnerDiv />}
-            </SwitcherOuterDiv>
-          ))}
-        </Switcher>
-      </SwitcherWrapper>
+      {data && (
+        <SwitcherWrapper>
+          <Switcher>
+            {pagination.map((i) => (
+              <SwitcherOuterDiv
+                onClick={() => setCurrentPage(i)}
+                key={Math.random()}
+              >
+                {currentPage === i && <SwitcherInnerDiv />}
+              </SwitcherOuterDiv>
+            ))}
+          </Switcher>
+        </SwitcherWrapper>
+      )}
     </Content>
   );
 }

@@ -5,6 +5,11 @@ const Button = styled.button`
   height: 53px;
   background: #ececec;
   border: 0;
+  &:active {
+    transform: scale(0.98);
+  }
+  cursor: pointer;
+  user-select: none;
 `;
 export const FavoritesButton = () => (
   <Button>

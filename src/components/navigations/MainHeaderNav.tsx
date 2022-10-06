@@ -4,17 +4,22 @@ const Navigation = styled.nav`
   display: flex;
   gap: 32px;
 `;
-const NavText = styled.span`
+const NavText = styled.div`
   font-family: "Lato";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
+  height: 23px;
   text-transform: uppercase;
   color: #ffffff;
+  &:hover {
+    color: #88bcd2;
+    border-bottom: 1px solid #88bcd2;
+  }
 `;
 const activeStyle = {
-  borderBottom: "1px solid #fff",
   height: "23px",
+  borderBottom: "1px solid #fff",
 };
 export const MainHeaderNav = () => (
   <Navigation>

@@ -12,5 +12,10 @@ const Button = styled.button`
   font-weight: 600;
   font-size: 24px;
   line-height: 29px;
+  &:active {
+    transform: scale(0.98);
+  }
+  cursor: pointer;
+  user-select: none;
 `;
 export const SignInButton = () => <Button>sign in</Button>;

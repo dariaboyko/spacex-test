@@ -2,6 +2,7 @@ import { Logo } from "../../assets/icons/logo";
 import { SignInButton } from "../buttons/SignInButton";
 import { MainHeaderNav } from "../navigations/MainHeaderNav";
 import { FavoritesButton } from "../buttons/FavoritesButton";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 const Header = styled.header`
   background-color: rgba(30, 30, 30, 0.48);
@@ -24,10 +25,14 @@ const ButtonsContainer = styled.div`
 export const MainHeader = () => (
   <Header>
     <HeaderContainer>
-      <Logo width={230} />
+      <NavLink to="/">
+        <Logo width={230} />
+      </NavLink>
       <MainHeaderNav />
       <ButtonsContainer>
-        <FavoritesButton />
+        <NavLink to="/favorites">
+          <FavoritesButton />
+        </NavLink>
         <SignInButton />
       </ButtonsContainer>
     </HeaderContainer>
