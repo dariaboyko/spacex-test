@@ -22,9 +22,9 @@ export const PreviousButton = (props: { onClick: any }) => (
       <path
         d="M8.5 1L1.5 8L8.5 15"
         stroke="#200E32"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   </Button>

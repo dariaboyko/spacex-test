@@ -24,8 +24,8 @@ const activeStyle = {
 export const MainHeaderNav = () => (
   <Navigation>
     <NavLink
-      to=""
-      style={({ isActive }) => (isActive ? activeStyle : undefined)}
+      to="/"
+      style={() => (window.location.pathname === "/" ? activeStyle : undefined)}
     >
       <NavText>home</NavText>
     </NavLink>

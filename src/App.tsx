@@ -1,11 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { MainPage } from "./pages/MainPage";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql,
-} from "@apollo/client";
+import { FavoritesPage } from "./pages/FavoritesPage";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { RecoilRoot, atom } from "recoil";
 import "./global.scss";
 
 const client = new ApolloClient({
@@ -17,12 +14,18 @@ const router = createBrowserRouter([
     path: "/",
     element: <MainPage />,
   },
+  {
+    path: "/favorites",
+    element: <FavoritesPage />,
+  },
 ]);
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <RouterProvider router={router} />
+      <RecoilRoot>
+        <RouterProvider router={router} />
+      </RecoilRoot>
     </ApolloProvider>
   );
 }

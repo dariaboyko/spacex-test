@@ -1,15 +1,14 @@
 import styled from "styled-components";
 import { BuyButton } from "../buttons/BuyButton";
-import { FavoritesButton } from "../buttons/FavoritesButton";
+import { DeleteButton } from "../buttons/DeleteButton";
 type Props = {
   title: string;
   description: string;
   imgURL: string;
-  addToFavorites: any;
 };
 const ProductDiv = styled.div`
-  height: 572px;
   width: 411px;
+  height: 572px;
   border: 1px solid #d3eaff;
   text-align: center;
   display: flex;
@@ -46,12 +45,7 @@ const Buttons = styled.div`
   align-items: center;
   gap: 16px;
 `;
-export function ProductCard({
-  title,
-  description,
-  imgURL,
-  addToFavorites,
-}: Props) {
+export function FavoriteProductCard({ title, description, imgURL }: Props) {
   return (
     <ProductDiv>
       <ProductImage src={imgURL} />
@@ -59,10 +53,7 @@ export function ProductCard({
       <ProductDescription>{description}</ProductDescription>
       <Buttons>
         <BuyButton />
-        <FavoritesButton
-          favoriteButtonColor="standart"
-          onClick={addToFavorites}
-        />
+        <DeleteButton />
       </Buttons>
     </ProductDiv>
   );

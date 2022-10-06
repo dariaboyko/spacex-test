@@ -2,10 +2,10 @@ import { MainHeader } from "../components/headers/MainHeader";
 import { MainHero } from "../components/heros/MainHero";
 import { MainPageContent } from "../components/contents/MainPageContent";
 export const MainPage = () => (
-  <div>
+  <main>
     <MainHero>
-      <MainHeader />
+      <MainHeader favoriteButtonColor="standart" />
     </MainHero>
     <MainPageContent />
-  </div>
+  </main>
 );

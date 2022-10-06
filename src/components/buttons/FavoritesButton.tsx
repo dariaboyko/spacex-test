@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import HeartSVG from "../../assets/icons/heart";
-const Button = styled.button`
+interface Props {
+  color: string;
+}
+const Button = styled.button<Props>`
   width: 53px;
   height: 53px;
-  background: #ececec;
+  background: ${(props) => (props.color === "pink" ? "#DD377D " : "#ececec")};
   border: 0;
   &:active {
     transform: scale(0.98);
@@ -11,8 +14,16 @@ const Button = styled.button`
   cursor: pointer;
   user-select: none;
 `;
-export const FavoritesButton = () => (
-  <Button>
-    <HeartSVG />
-  </Button>
-);
+export function FavoritesButton(props: {
+  favoriteButtonColor: string;
+  onClick: any;
+}) {
+  return (
+    <Button
+      color={props.favoriteButtonColor}
+      onClick={typeof props.onClick === "function" ? props.onClick : () => {}}
+    >
+      <HeartSVG fill={props.favoriteButtonColor === "pink" ? "#fff" : ""} />
+    </Button>
+  );
+}

@@ -4,6 +4,8 @@ import { useQuery, gql } from "@apollo/client";
 import { ProductCard } from "../cards/ProductCard";
 import { NextButton } from "../buttons/NextButton";
 import { PreviousButton } from "../buttons/PreviousButton";
+import { useRecoilState } from "recoil";
+import { favouritesState } from "../store";
 const ContentTitle = styled.h2`
   font-family: "Syne";
   font-style: normal;
@@ -91,7 +93,11 @@ export function MainPageContent() {
   const { loading, data } = useQuery<Data>(GET_FLIGHTS);
   const [currentPage, setCurrentPage] = useState(0);
   const [firstIndex, setFirstIndex] = useState(0);
+  const [favoriteList, setFavoriteList] = useRecoilState(favouritesState);
   let filtered;
+  const addItem = (item: Flight) => {
+    setFavoriteList((favoriteList) => [...favoriteList, item]);
+  };
   let pagesAmount = 1;
   if (data) {
     filtered = data.histories.filter(
@@ -137,6 +143,7 @@ export function MainPageContent() {
                 item.flight.links.flickr_images[0] &&
                 item.flight.details && (
                   <ProductCard
+                    addToFavorites={() => addItem(item.flight)}
                     title={item.flight.mission_name}
                     description={item.flight.details.slice(0, 55)}
                     imgURL={item.flight.links.flickr_images[0]}

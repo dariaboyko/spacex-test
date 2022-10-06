@@ -22,7 +22,7 @@ const ButtonsContainer = styled.div`
   gap: 12px;
   display: flex;
 `;
-export const MainHeader = () => (
+export const MainHeader = (props: { favoriteButtonColor: string }) => (
   <Header>
     <HeaderContainer>
       <NavLink to="/">
@@ -31,7 +31,10 @@ export const MainHeader = () => (
       <MainHeaderNav />
       <ButtonsContainer>
         <NavLink to="/favorites">
-          <FavoritesButton />
+          <FavoritesButton
+            favoriteButtonColor={props.favoriteButtonColor}
+            onClick
+          />
         </NavLink>
         <SignInButton />
       </ButtonsContainer>
