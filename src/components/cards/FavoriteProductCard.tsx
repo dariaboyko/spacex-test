@@ -5,6 +5,7 @@ type Props = {
   title: string;
   description: string;
   imgURL: string;
+  deleteItem: any;
 };
 const ProductDiv = styled.div`
   width: 411px;
@@ -45,7 +46,12 @@ const Buttons = styled.div`
   align-items: center;
   gap: 16px;
 `;
-export function FavoriteProductCard({ title, description, imgURL }: Props) {
+export function FavoriteProductCard({
+  title,
+  description,
+  imgURL,
+  deleteItem,
+}: Props) {
   return (
     <ProductDiv>
       <ProductImage src={imgURL} />
@@ -53,7 +59,7 @@ export function FavoriteProductCard({ title, description, imgURL }: Props) {
       <ProductDescription>{description}</ProductDescription>
       <Buttons>
         <BuyButton />
-        <DeleteButton />
+        <DeleteButton onClick={deleteItem} />
       </Buttons>
     </ProductDiv>
   );

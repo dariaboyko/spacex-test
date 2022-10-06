@@ -65,6 +65,7 @@ interface Flight {
   mission_name: string;
   details: string;
   links: Link;
+  id: string;
 }
 interface Histories {
   flight: Flight;
@@ -78,6 +79,7 @@ const GET_FLIGHTS = gql`
     histories {
       flight {
         mission_name
+        id
         details
         links {
           flickr_images

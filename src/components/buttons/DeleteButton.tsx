@@ -11,9 +11,11 @@ const Button = styled.button`
   cursor: pointer;
   user-select: none;
 `;
-export function DeleteButton() {
+export function DeleteButton(props: { onClick: any }) {
   return (
-    <Button>
+    <Button
+      onClick={typeof props.onClick === "function" ? props.onClick : () => {}}
+    >
       <BinSVG />
     </Button>
   );

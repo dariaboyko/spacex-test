@@ -28,6 +28,8 @@ const Content = styled.section`
 
 export function FavouritesContent() {
   const [favoriteList, setFavoriteList] = useRecoilState(favouritesState);
+  const removeFavorite = (id: string) =>
+    setFavoriteList(favoriteList.filter((item) => item.id !== id));
   return (
     <Content>
       <ClearAll onClick={() => setFavoriteList([])}>Clear All</ClearAll>
@@ -39,6 +41,7 @@ export function FavouritesContent() {
               description={item.details.slice(0, 55)}
               imgURL={item.links.flickr_images[0]}
               key={Math.random()}
+              deleteItem={() => removeFavorite(item.id)}
             />
           )
       )}

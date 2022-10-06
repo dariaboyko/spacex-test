@@ -6,6 +6,7 @@ interface Flight {
   mission_name: string;
   details: string;
   links: Link;
+  id: string;
 }
 export const favouritesState = atom({
   key: "favourites",
