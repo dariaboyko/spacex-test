@@ -98,7 +98,8 @@ export function MainPageContent() {
   const [favoriteList, setFavoriteList] = useRecoilState(favouritesState);
   let filtered;
   const addItem = (item: Flight) => {
-    setFavoriteList((favoriteList) => [...favoriteList, item]);
+    if (favoriteList.filter((f) => f.id === item.id).length === 0)
+      setFavoriteList((favoriteList) => [...favoriteList, item]);
   };
   let pagesAmount = 1;
   if (data) {
