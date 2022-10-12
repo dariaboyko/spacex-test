@@ -7,6 +7,8 @@ type Props = {
 const Content = styled.section`
   background: url(${AstronautIMG});
   height: 440px;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 const Title = styled.h1`
   height: 100%;
